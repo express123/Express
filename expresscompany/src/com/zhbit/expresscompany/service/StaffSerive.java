@@ -6,5 +6,8 @@ public interface StaffSerive {
 		Staff add(Staff staff);
 		Staff getStaff(int sid);
 		void removeStaff(int sid);
-                List<Staff> getTheStaffByStid(int stid);
+
+        List<Staff> getTheStaffByStid(int stid);
+        Staff getBranchManager(int bid);
+
 }

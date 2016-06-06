@@ -11,9 +11,11 @@
  
 <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 	<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-	<property name="jdbcUrl" value="jdbc:sqlserver://localhost:1433;DatabaseName=express"/>
+
+	<property name="jdbcUrl" value="jdbc:sqlserver://115.159.126.198:1433;DatabaseName=express"/>
 	<property name="user" value="sa"/>
-	<property name="password" value="zhbit"/>
+	<property name="password" value="zhbit2."/>
+
 	<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
 	<property name="initialPoolSize" value="1"/>
 	<!--连接池中保留的最小连接数。-->
@@ -44,6 +46,9 @@
     	<value>com/zhbit/expresscompany/domain/orders.hbm.xml</value>
     	<value>com/zhbit/expresscompany/domain/ostate.hbm.xml</value>
         <value>com/zhbit/expresscompany/domain/sType.hbm.xml</value>
+
+         <value>com/zhbit/expresscompany/domain/moneys.hbm.xml</value>
+
     	</list>
     	
  	</property>
@@ -199,6 +204,9 @@
 
 	<bean id="queryBranchAction" class="com.zhbit.expresscompany.web.action.QueryBranchAction" scope="request">
 		<property name="serive" ref="banchesSerive"/>
+
+		<property name="staffSerive" ref="staffSerive"/>
+
 	</bean>	
 	
 	<!-- 订单 -->
@@ -230,6 +238,26 @@
 		<property name="serive" ref="ostateSerive"/>
 	</bean>
 	<!-- 订单状态 -->
- 
+
+	
+	
+	
+	
+ 	<bean id="moneysDao" class="com.zhbit.expresscompany.dao.impl.MoneysDaoBean">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="moneysSerive" class="com.zhbit.expresscompany.service.impl.MoneysSeriveBean">
+		<property name="moneysDao" ref="moneysDao"/>
+	</bean>
+	
+	<bean id="queryFreightAction" class="com.zhbit.expresscompany.web.action.QueryFreightAction" scope="request">
+		<property name="moneysSerive" ref="moneysSerive"/>
+		<property name="cityserive" ref="citySerive"/>
+		<property name="provinceserive" ref="provinceSerive"/>
+	</bean>
+	
+ 	
+
 </beans>
 

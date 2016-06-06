@@ -36,4 +36,11 @@ public class StaffSeriveBean implements StaffSerive {
 		this.staffDao = staffDao;
 	}
 
+
+	public Staff getBranchManager(int bid) {
+		// TODO Auto-generated method stub
+		return staffDao.getBranchManager(bid);
+	}
+
+
 }
