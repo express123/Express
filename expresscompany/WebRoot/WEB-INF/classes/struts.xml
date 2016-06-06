@@ -84,5 +84,11 @@
 		
 	</package>
 	
+	
+	<package name="queryfreightmanage" extends="struts-default" namespace="/queryfreightmanage">
+		<action name="getFreight" class="queryFreightAction" method="getFreight">
+			<result name="freight">/page/foreground/freight.jsp</result>
+		</action>
+	</package>
 
 </struts>

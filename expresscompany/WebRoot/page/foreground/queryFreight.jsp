@@ -54,7 +54,7 @@
 		
 			<b id="p3">寄件地址：</b>
 			请选择省和市
-			<s:form action="getbanchesQueryBranch" namespace="/querybranchmanage" method="post" target="showBranch">
+			<s:form action="getFreight" namespace="/queryfreightmanage" method="post" target="showFreight">
 			<div class="doubles">
 				<s:doubleselect name = "spid" list="allprovince"  listKey="pid" listValue="pname" labelposition="left"				
   				  doubleName = "scid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
@@ -70,7 +70,7 @@
   				  doubleName = "rcid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
   				</s:doubleselect>
 			</div>
-			<b id="p3">输入重量</b><input type="text" size=35>
+			<b id="p3">输入重量</b><s:textfield name="weight"/>
 			<s:submit value="查询"/>
 			</s:form>
 			</ul>

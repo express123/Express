@@ -44,6 +44,7 @@
     	<value>com/zhbit/expresscompany/domain/orders.hbm.xml</value>
     	<value>com/zhbit/expresscompany/domain/ostate.hbm.xml</value>
         <value>com/zhbit/expresscompany/domain/sType.hbm.xml</value>
+         <value>com/zhbit/expresscompany/domain/moneys.hbm.xml</value>
     	</list>
     	
  	</property>
@@ -231,6 +232,24 @@
 		<property name="serive" ref="ostateSerive"/>
 	</bean>
 	<!-- 订单状态 -->
- 
+	
+	
+	
+	
+ 	<bean id="moneysDao" class="com.zhbit.expresscompany.dao.impl.MoneysDaoBean">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="moneysSerive" class="com.zhbit.expresscompany.service.impl.MoneysSeriveBean">
+		<property name="moneysDao" ref="moneysDao"/>
+	</bean>
+	
+	<bean id="queryFreightAction" class="com.zhbit.expresscompany.web.action.QueryFreightAction" scope="request">
+		<property name="moneysSerive" ref="moneysSerive"/>
+		<property name="cityserive" ref="citySerive"/>
+		<property name="provinceserive" ref="provinceSerive"/>
+	</bean>
+	
+ 	
 </beans>
 
