@@ -11,9 +11,9 @@
  
 <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 	<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-	<property name="jdbcUrl" value="jdbc:sqlserver://localhost:1433;DatabaseName=express"/>
+	<property name="jdbcUrl" value="jdbc:sqlserver://115.159.126.198:1433;DatabaseName=express"/>
 	<property name="user" value="sa"/>
-	<property name="password" value="zhbit"/>
+	<property name="password" value="zhbit2."/>
 	<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
 	<property name="initialPoolSize" value="1"/>
 	<!--连接池中保留的最小连接数。-->
