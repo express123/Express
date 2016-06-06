@@ -42,7 +42,7 @@ html,body{height:90%;overflow:hidden;}
 			<h1 id="p1">查询</h1>
 			<ul>
 			<li id="p3"><a href="queryExpress.jsp" style="text-decoration:none">查询快件</a></li>
-			<li id="p3"><a href="queryFreight.html" style="text-decoration:none">查询运费</a></li>
+			<li id="p3"><a href="queryFreight.jsp" style="text-decoration:none">查询运费</a></li>
 			<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
 			<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
 

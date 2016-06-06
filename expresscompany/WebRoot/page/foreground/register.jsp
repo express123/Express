@@ -55,11 +55,11 @@
   <div id="rebody">
   <br><br>
   <center><s:form action="Register" namespace="/usermanage" method="post" >
-    	用户名：<s:textfield name="user.uid" size="35" /><br/><br/><br/>
+    	用户名：<s:textfield name="user.uid"  /><br/><br/><br/>
               
-                       密&nbsp;&nbsp;码：<s:textfield name="user.upd" size="35" /> <br/><br/><br/>
+                       密&nbsp;&nbsp;码：<s:password name="user.upd"  /> <br/><br/><br/>
         
-                       确认密码：<s:textfield name="password" size="35" /> <br/><br/><br/>
+                       确认密码：<s:password name="password"  /> <br/><br/><br/>
         <s:submit  value="注册" />
         <s:reset value="重置" />
     </s:form>
