@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.zhbit.expresscompany.domain.Notice;
-import com.zhbit.expressompany.service.NoticeSerive;
+import com.zhbit.expresscompany.service.NoticeSerive;
 
 
 

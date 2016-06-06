@@ -3,7 +3,7 @@ package com.zhbit.expresscompany.service.impl;
 
 import com.zhbit.expresscompany.dao.UserDao;
 import com.zhbit.expresscompany.domain.User;
-import com.zhbit.expressompany.service.UserSerive;
+import com.zhbit.expresscompany.service.UserSerive;
 
 public class UserSeriveBean implements UserSerive {
 	private UserDao userDao;

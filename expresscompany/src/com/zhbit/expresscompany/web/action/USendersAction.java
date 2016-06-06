@@ -2,7 +2,7 @@ package com.zhbit.expresscompany.web.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zhbit.expresscompany.domain.USenders;
-import com.zhbit.expressompany.service.USendersSerive;
+import com.zhbit.expresscompany.service.USendersSerive;
 
 public class USendersAction extends ActionSupport {
 	private USenders usender;

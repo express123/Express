@@ -1,10 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>北理速运经理界面</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>   
@@ -45,10 +46,10 @@
   <th>功能    列表</th>
   </tr>
   <tr>
-  <td><a href="staff.jsp" target="showNotice" >&nbsp;&nbsp;管理员工&nbsp;&nbsp;</a></td>
+  <td><s:a action="enterWebsiteStaff"  namespace="/staffmanage" target="showNotice">&nbsp;&nbsp;员工管理&nbsp;&nbsp;</s:a></td>
   </tr>
    <tr>
-  <td><a href="performance.jsp" target="showNotice">查看业绩信息</a></td>
+  <td><s:a action="getProvince"  namespace="/banchesmanage" target="showNotice">&nbsp;&nbsp;网点管理&nbsp;&nbsp;</s:a></td>
   </tr>
   <tr>
   <td><a href="wayBill.jsp" target="showNotice">查看运单信息</a></td>
@@ -58,7 +59,7 @@
 <div id="rightdiv"> 
 <!-- <iframe name="showNotice" src="staff.jsp" height="800px" width="100%" frameborder="0" marginheight="0" marginwidth="0"  scrolling="yes"/> 
  -->
- <iframe name="showNotice" src="staff.jsp" height="800px" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes"></iframe> 
+ <iframe name="showNotice" src="/expresscompany/page/background/firstmanagerpage.html" height="800px" width="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes"></iframe> 
   </div> 
  
 </div>

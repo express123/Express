@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.zhbit.expresscompany.domain.URecipients;
-import com.zhbit.expressompany.service.URecipientsSerive;
+import com.zhbit.expresscompany.service.URecipientsSerive;
 
 public class URecipientsSeriveBeanTest {
 	private static URecipientsSerive serive;

@@ -5,7 +5,7 @@ package com.zhbit.expresscompany.service.impl;
 
 import com.zhbit.expresscompany.dao.NoticeDao;
 import com.zhbit.expresscompany.domain.Notice;
-import com.zhbit.expressompany.service.NoticeSerive;
+import com.zhbit.expresscompany.service.NoticeSerive;
 
 
 public class NoticeSeriveBean implements NoticeSerive {

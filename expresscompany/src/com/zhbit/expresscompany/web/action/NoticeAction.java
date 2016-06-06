@@ -2,7 +2,7 @@ package com.zhbit.expresscompany.web.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zhbit.expresscompany.domain.Notice;
-import com.zhbit.expressompany.service.NoticeSerive;
+import com.zhbit.expresscompany.service.NoticeSerive;
 
 
 public class NoticeAction extends ActionSupport {

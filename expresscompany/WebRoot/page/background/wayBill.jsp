@@ -19,12 +19,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
   <br>
-    <center><font id="word">欢迎来到运单界面</font></center><br>
+    <center><font size="7">欢迎来到运单界面</font></center><br>
      <hr size="6"  color="#ff0000"><br><br>
      <form> 
      <center> 按时间查询:<input type="text" name="time1" maxlength="20" size="20"/>
@@ -41,6 +41,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         运单总数：
        <br/>  <br/>
        <hr size="3"  color="#ff0000"><br><br>
-        <center><font id="word1">全部运单信息</font></center> <br/><br/>
+        <center><font class="word1">全部运单信息</font></center> <br/><br/>
   </body>
 </html>

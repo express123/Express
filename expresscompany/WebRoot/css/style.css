@@ -48,10 +48,13 @@ html,body {
 }
 
 /*¾ÓÖÐ×ÖÌå*/
-#word{
-	font-size:40px;
+.word{
+	font-size:60px;
 	
 }
-#word1{
+.word1{
 	font-size:30px;
+}
+.word2{
+	font-size:50px;
 }

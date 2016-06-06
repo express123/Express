@@ -2,7 +2,7 @@ package com.zhbit.expresscompany.service.impl;
 
 import com.zhbit.expresscompany.dao.URecipientsDao;
 import com.zhbit.expresscompany.domain.URecipients;
-import com.zhbit.expressompany.service.URecipientsSerive;
+import com.zhbit.expresscompany.service.URecipientsSerive;
 
 public class URecipientsSeriveBean implements URecipientsSerive {
 	private URecipientsDao urecipientsDao;
