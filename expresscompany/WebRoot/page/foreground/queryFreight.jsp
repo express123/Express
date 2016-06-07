@@ -43,10 +43,10 @@
 		<div id="mid">
 			<h1 id="p1">查询</h1>
 			<ul>
-			<li id="p3"><a href="queryExpress.html" style="text-decoration:none">查询快件</a></li>
-			<li id="p3"><a href="queryFreight.html" style="text-decoration:none">查询运费</a></li>
-			<li id="p3"><a href="queryBranch.html" style="text-decoration:none">查询网点</a></li>
-			<li id="p3"><a href="queryBranchPhone.html" style="text-decoration:none">查询客服电话</a></li>
+			<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
+			<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
+			<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
+			<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
 			</ul>	
 		</div>
 		<div id=right> 
