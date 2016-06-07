@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
@@ -42,6 +42,12 @@
 			#mid {background-color:#EEEEEE;height:350px;width:150px;float:left;}
 			#left {background-color:white;height:350px;width:350px;float:left;}
 			#right {background-color:white;height:350px;width:400px;float:left;}
+
+	    
+	    .doubles br{
+			display: none;
+			}
+
 	    </style>
     </head>
     <body>
@@ -68,10 +74,14 @@
 		<div id=right> 
 		<s:form action="getphonesQueryBranch" namespace="/querybranchmanage" method="post" target="showbranchPhone">
 			<ul>
-		<b id="p3">省&nbsp;&nbsp;</b>
-			<s:select  name = "pid" list="allprovince"  listKey="pid" listValue="pname" />
-  			<b id="p3">市&nbsp;&nbsp;</b>
-  			<s:select  name = "cid" list="allcity"  listKey="cid" listValue="cname" />
+
+			请选择省和市
+		<div class="doubles">
+			<s:doubleselect name = "pid" list="allprovince"  listKey="pid" listValue="pname" labelposition="left"
+  			  doubleName = "cid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
+  			</s:doubleselect>
+  		</div>
+
 			<br>
 			<br>
 			<input type="submit"style="font-size:20" value="查询">

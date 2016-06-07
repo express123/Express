@@ -34,8 +34,6 @@ public class BanchesSeriveBean implements BanchesSerive{
        
 
         public List<Banches> allNotUseBanches(List list){
-        	System.out.println("Êä³ö1£º¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª"+list.get(0));
-        	System.out.println("Êä³ö1£º¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª"+list.get(1));
     	   return banchesDao.notUseBanches(list);
        }
 

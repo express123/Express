@@ -31,24 +31,9 @@ public class ProvinceAction extends ActionSupport {
    private List<Website> allwebsite=new ArrayList<Website> ();	  
   
   public String get(){
-	   //获取省份和城市
-	  // allprovince=serive.getAllProvince();
-	  // allcity = serive1.getAllCity();
-	  List<City> getcity= new ArrayList<City>();
-	  cityMap = new HashMap<Integer, List<City>>();
-	allprovince=serive.getAllProvince();
-	for(int i=1;i<allprovince.size();++i){
-		   province=allprovince.get(i-1);
-		   getcity=serive1.getCity(province.getPid());
-		   Integer j=new Integer(i);
-		   if(getcity.size()!=0){
-			   cityMap.put(j, getcity);
-		   }else{
-			   System.out.print("不对啊啊");
-		   }
-	   }
-	  //获取所有网点
-	  allbanches=serive2.getALlBanches();
+	   allprovince=serive.getAllProvince();
+	   allcity = serive1.getAllCity();
+	   allbanches=serive2.getALlBanches();
 	  
 	  for(int i=0;i<allbanches.size();i++){
 		   Website website=new Website();

@@ -4,9 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.zhbit.expresscompany.domain.Staff" table="Staff">
-		<id name="sid">
-			<generator class="native"/>
-		</id>
+		<id name="sid"/>
 		<property name="spd" type="string" length="32"/>
 		<property name="sname" type="string" length="16"/>
 		<property name="sphone" type="string" length="16"/>
