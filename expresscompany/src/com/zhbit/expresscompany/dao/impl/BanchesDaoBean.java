@@ -1,4 +1,5 @@
 package com.zhbit.expresscompany.dao.impl;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 
@@ -34,24 +35,26 @@ public class BanchesDaoBean implements BanchesDao{
 		return sessionFactory.getCurrentSession().createQuery("from Banches").list();
 	}
         
-        public List<Banches> notUseBanches(List list){
-		//String hq1="from Bahches where bid not in(";
-		//String hq2=",";
-		//String hq3=")";
-		//(int ii=0;ii<list.size();ii++){
-			//String b=list.get(ii).toString();
-			//hq1=hq1+b;
-			//if(ii<list.size()-1)
-			//hq1=hq1+hq2;
-		//}
-		//hq1=hq1+hq3;
-		String hq1="from Bahches where bid not in(:ids)";
-		Query query=sessionFactory.getCurrentSession().createQuery(hq1);
-		query.setParameter("ids", 3);
-		for(int ii=0;ii<list.size();ii++){
-			query.setInteger(ii, Integer.parseInt(list.get(ii).toString())); 
-		}
-		return  query.list();
+    public List<Banches> notUseBanches(List list){
+    	System.out.println("Êä³ö2£º¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª"+list.get(0));
+    	System.out.println("Êä³ö2£º¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª"+list.get(1));
+        	String hql="from Banches";
+    		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+    		List<Banches> list1=query.list();
+    		for(int i=0;i<list1.size();i++){
+    			System.out.println("Êä³öËùÓÐÍøµã"+list1.get(i).getBid());
+    		for(int j=0;j<list.size();j++){
+    			int a=Integer.parseInt(list.get(j).toString()); 
+    			System.out.println("hehehheheheh"+a);
+    			if(list1.get(i).getBid()==a){
+    				list1.remove(i);  
+    			  if(i>0){
+    				i--; 
+    			  }
+    			}
+    			}
+    		}
+    		return  list1;   	
 	}
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

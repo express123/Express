@@ -45,7 +45,11 @@
 	<package name="staffmanage" extends="struts-default" namespace="/staffmanage">
 		<action name="*Staff" class="staffAction" method="{1}">
 			<result name="LoginStaff">/page/background/manage.jsp</result>
-		        <result name="enterWebsite">/page/background/firstmanagerpage.html</result>
+		    <result name="enterWebsiteManager">/page/background/Websitestaff.jsp</result>
+		    <result name="addWebSiteStaffsuccess">/showSuccess.jsp</result>
+            <result name="goToUpdateWebsitemanager">/page/background/upDateWebsiteManagerPage.jsp</result>
+			<result name="updateWebsitemanager">/showSuccess.jsp</result>
+			<result name="delectWebsitemanager">/showSuccess.jsp</result>  
                </action>
 	</package>
 	<package name="logisitcsmanage" extends="struts-default" namespace="/logisitcsmanage">
@@ -59,9 +63,6 @@
 		<action name="*ProvinceCity" class="provinceCityAction" method="{1}">
 			<result name="branch">/page/foreground/queryBranch.jsp</result>
 			<result name="phone">/page/foreground/queryBranchPhone.jsp</result>
-
-			<result name="freight">/page/foreground/queryFreight.jsp</result>
-
 		</action>
 	</package>
  
@@ -86,13 +87,5 @@
 		
 	</package>
 	
-
-	
-	<package name="queryfreightmanage" extends="struts-default" namespace="/queryfreightmanage">
-		<action name="getFreight" class="queryFreightAction" method="getFreight">
-			<result name="freight">/page/foreground/freight.jsp</result>
-		</action>
-	</package>
-
 
 </struts>

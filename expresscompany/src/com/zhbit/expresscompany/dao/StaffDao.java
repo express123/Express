@@ -6,8 +6,6 @@ public interface StaffDao {
 	Staff save(Staff staff);
 	void delect(Staff staff);
 	Staff getStaffBySid(int sid);
-
     List<Staff> getStaffByStid(int stid);
-    Staff getBranchManager(int bid);
-
+    Staff update(Staff staff);
 }

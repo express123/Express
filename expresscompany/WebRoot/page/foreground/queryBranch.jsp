@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
@@ -44,11 +44,6 @@
 			#mid {background-color:#EEEEEE;height:350px;width:150px;float:left;}
 			#left {background-color:white;height:350px;width:350px;float:left;}
 			#right {background-color:white;height:350px;width:400px;float:left;}
-
-	    	.doubles br{
-			display: none;
-			}
-
 	    </style>
     </head>
     <body>
@@ -76,13 +71,10 @@
 		<s:form action="getbanchesQueryBranch" namespace="/querybranchmanage" method="post" target="showBranch">
 			<ul>
 			请选择省和市
-
-			<div class="doubles">
 			<s:doubleselect name = "pid" list="allprovince"  listKey="pid" listValue="pname" labelposition="left"
   			  doubleName = "cid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
   			</s:doubleselect>
-  			</div>
-
+  			
 			<br>
 			<br>
 			<s:submit value="查询"/>
