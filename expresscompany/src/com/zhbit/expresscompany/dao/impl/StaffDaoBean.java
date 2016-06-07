@@ -41,4 +41,13 @@ public class StaffDaoBean implements StaffDao {
 		this.sessionFactory = sessionFactory;
 	}
 
+	public Staff getBranchManager(int bid) {
+		// TODO Auto-generated method stub
+		String hql="from Staff where stid=3 and bid=?";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger(0, bid);
+		Staff staff=(Staff)query.list().get(0);
+		return staff;
+	}
+
 }
