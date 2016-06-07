@@ -22,6 +22,7 @@ public class CitySeriveTest {
 	@Test
 	public void testGetCity() {
 		serive.getCity(1);
+//System.out.print("test");
 	}
 
 }

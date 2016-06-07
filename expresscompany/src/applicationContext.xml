@@ -12,6 +12,7 @@
 <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 	<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
 
+
 	<property name="jdbcUrl" value="jdbc:sqlserver://115.159.126.198:1433;DatabaseName=express"/>
 	<property name="user" value="sa"/>
 	<property name="password" value="zhbit2."/>

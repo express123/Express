@@ -91,6 +91,9 @@
 				font-size:30px;
 				font-weight:550;
 			}
+			.doubles br{
+			display: none;
+			}
 	</style>
   </head>
   
@@ -105,7 +108,7 @@
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;真实姓名：</p>
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.usname" maxlength="10" style='font-size:18px' />
 				<br>
-				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;请选择省/市：</p>&nbsp;&nbsp;&nbsp;&nbsp;
+				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;请选择省/市：</p>
 				<!--<select id="province" name="provinces" >
 	    			<option value="0">---省份---</option>
 		    		<s:iterator value="allprovince">
@@ -121,11 +124,13 @@
 			       doubleName="citid" doubleList="cityMap.get(top.pid)"
 			       doubleListKey="cid" doubleListValue="cname" >
  	  			</s:doubleselect>-->
+ 	  			<div class="doubles">&nbsp;&nbsp;&nbsp;&nbsp;
  	  			<s:doubleselect name="spid" list="allprovince" listKey="pid" listValue="pname" labelposition="top"
 			       doubleName="scid" doubleList="cityMap.get(top.pid)"
 			       doubleListKey="cid" doubleListValue="cname" >
  	  			</s:doubleselect>
-    		 	<br>
+ 	  			</div>
+    		 	
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;详细地址：</p>
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.usaddress" maxlength="16" style='font-size:18px' />
 				<br>
@@ -141,12 +146,14 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.urname" maxlength="10" style='font-size:18px' />
 				<br>
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;请选择省/市：</p>
-				&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				<div class="doubles">&nbsp;&nbsp;&nbsp;&nbsp;
  	  			<s:doubleselect name="rpid" list="allprovince" listKey="pid" listValue="pname" labelposition="left"
 			       doubleName="rcid" doubleList="cityMap.get(top.pid)"
 			       doubleListKey="cid" doubleListValue="cname" >
  	  			</s:doubleselect>
-				<br>
+ 	  			</div>
+				
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;详细地址：</p>
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.uraddress" maxlength="16" style='font-size:18px' />
 				<br>
