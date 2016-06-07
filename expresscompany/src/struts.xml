@@ -55,6 +55,8 @@
             <result name="goToUpdateWebsitemanager">/page/background/upDateWebsiteManagerPage.jsp</result>
 			<result name="updateWebsitemanager">/showSuccess.jsp</result>
 			<result name="delectWebsitemanager">/showSuccess.jsp</result>  
+       
+            
         </action>
 	</package>
 	<package name="logisitcsmanage" extends="struts-default" namespace="/logisitcsmanage">
