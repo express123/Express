@@ -1,6 +1,9 @@
 package com.zhbit.expresscompany.web.action;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.zhbit.expresscompany.domain.Banches;
 import com.zhbit.expresscompany.domain.SType;
@@ -28,13 +31,29 @@ public class StaffAction extends ActionSupport {
 	public String get(){
 		Staff rightstaff;
 		rightstaff=serive.getStaff(staff.getSid());
-		if(rightstaff.getSpd().equals(staff.getSpd())){
-			return "LoginStaff";
-		}else{
-			return SUCCESS;
-		}
+		ActionContext.getContext().getSession().put("rightstaff", rightstaff);
 		
-	}
+		if(rightstaff.getSpd().equals(staff.getSpd())){
+		
+			ActionContext.getContext().getSession().put("rightstaff", rightstaff);
+			
+			if(serive1.getSType(rightstaff.getStid()).getStname().equals("总经理")){
+			  return "LoginStaff";
+			}
+			if(serive1.getSType(rightstaff.getStid()).getStname().equals("网点经理")){
+				return "websitemanageEnter";
+			}
+			if(serive1.getSType(rightstaff.getStid()).getStname().equals("业务员")){
+				return "clerkEnter";
+			}
+			if(serive1.getSType(rightstaff.getStid()).getStname().equals("快递员")){
+				return "courierEnter";
+			}
+		}else{
+			return "fail";
+		}
+		    return "fail";
+		}
 	 
      public String addWebSiteManager(){
     	//获取并赋值员工类型ID 
