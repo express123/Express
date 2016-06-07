@@ -5,21 +5,13 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zhbit.expresscompany.domain.Banches;
-
-import com.zhbit.expresscompany.domain.Staff;
 import com.zhbit.expresscompany.service.BanchesSerive;
-import com.zhbit.expresscompany.service.StaffSerive;
-
 
 public class QueryBranchAction extends ActionSupport {
 		private BanchesSerive serive;
 		private int pid;
 		private int cid;
 		private List<Banches> bancheslist;
-
-		private StaffSerive  staffSerive;
-		private List<Staff> stafflist=new ArrayList<Staff>();
-
 		public String getbanches(){
 			
 			bancheslist=serive.getBanchesByPidCid(pid, cid);
@@ -27,14 +19,7 @@ public class QueryBranchAction extends ActionSupport {
 		}
 		
 		public String getphones(){
-
-			bancheslist=serive.getBanchesByPidCid(pid, cid);
-			for(Banches banche:bancheslist){
-				Staff staff=staffSerive.getBranchManager(banche.getBid());
-				System.out.println("--------------------"+staff.getSname());
-				stafflist.add(staff);
-			}
-
+			bancheslist=serive.getBanchesByPidCid(pid, cid);			
 			return "phones";
 		}
 		
@@ -70,24 +55,6 @@ public class QueryBranchAction extends ActionSupport {
 		public void setCid(int cid) {
 			this.cid = cid;
 		}
-
-
-		public StaffSerive getStaffSerive() {
-			return staffSerive;
-		}
-
-		public void setStaffSerive(StaffSerive staffSerive) {
-			this.staffSerive = staffSerive;
-		}
-
-		public List<Staff> getStafflist() {
-			return stafflist;
-		}
-
-		public void setStafflist(List<Staff> stafflist) {
-			this.stafflist = stafflist;
-		}
-
 		
 		
 		

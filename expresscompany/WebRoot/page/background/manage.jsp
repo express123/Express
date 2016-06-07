@@ -4,11 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>北理速运经理界面</title>
+<title>北理速运总经理界面</title>
 <link href="/expresscompany/css/style.css" rel="stylesheet" type="text/css" />
-	    <style type ="text/css">
-	    *{margin:0;padding:0;}
-	    </style>
+
 </head>
 <body>   
 <!-- 网页头部开始 -->
@@ -32,7 +30,7 @@
 	
 	<table align="center" bgcolor="#444444" width="100%" height="35px">
 			<tr>
-				<th><a href="/expresscompany/page/foreground/index.jsp"><font color="white">首页</font></a></th>
+				<th><a href="index.html"><font color="white">首页</font></a></th>
 				<th><a href="check.html"><font color="white">运单追踪</font></a></th>
 				<th><a href="sender.html"><font color="white">自助寄件</font></a></th>
 				<th><a href="xxx.html"><font color="white">运费查询</font></a></th>
@@ -54,7 +52,7 @@
   <td><s:a action="getProvince"  namespace="/banchesmanage" target="showNotice">&nbsp;&nbsp;网点管理&nbsp;&nbsp;</s:a></td>
   </tr>
   <tr>
-  <td><a href="/expresscompany/page/background/wayBill.jsp" target="showNotice">查看运单信息</a></td>
+  <td><a href="wayBill.jsp" target="showNotice">查看运单信息</a></td>
   </tr>
   </table>
     </div>

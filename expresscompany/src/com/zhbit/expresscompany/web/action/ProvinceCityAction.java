@@ -16,7 +16,8 @@ public class ProvinceCityAction extends ActionSupport {
 	private List<Province> allprovince;
 	private List<City> allcity;
 	private Map<Integer, List<City>> cityMap;
-
+	
+	
 	
 	
 	public String tobranch(){
@@ -40,46 +41,11 @@ public class ProvinceCityAction extends ActionSupport {
 	}
 	
 	public String tophone(){
-
-		cityMap=new HashMap<Integer,List<City>>();
 		allprovince=provinceserive.getAllProvince();
 		allcity=cityserive.getAllCity();
-		int i;
-		for(i=1;i<allprovince.size();++i){
-			   Province province=allprovince.get(i-1);
-			   List<City>getcity=cityserive.getCity(province.getPid());
-			   Integer j=new Integer(i);
-			   if(getcity.size()!=0){
-				   cityMap.put(j, getcity);
-			   }else{
-				   System.out.print("不对啊啊");
-			   }
-		   }
 		return "phone";
 	}
 	
-	
-	public String tofreight(){
-		cityMap=new HashMap<Integer,List<City>>();
-		allprovince=provinceserive.getAllProvince();
-		allcity=cityserive.getAllCity();
-		int i;
-		for(i=1;i<allprovince.size();++i){
-			   Province province=allprovince.get(i-1);
-			   List<City>getcity=cityserive.getCity(province.getPid());
-			   Integer j=new Integer(i);
-			   if(getcity.size()!=0){
-				   cityMap.put(j, getcity);
-			   }else{
-				   System.out.print("    不对啊啊");
-			   }
-		   }
-		return "freight";
-	}
-	
-	
-	
-
 	public CitySerive getCityserive() {
 		return cityserive;
 	}

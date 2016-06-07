@@ -18,11 +18,13 @@ public class StaffDaoBean implements StaffDao {
 
 	public void delect(Staff staff) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().update(staff);
+		System.out.println("删除员工第二步");
+		sessionFactory.getCurrentSession().delete(staff);
 	}
 
 	public Staff getStaffBySid(int sid) {
 		// TODO Auto-generated method stub
+		System.out.println("获取员工");
 		return (Staff) sessionFactory.getCurrentSession().load(Staff.class, sid);
 	}
 
@@ -32,22 +34,19 @@ public class StaffDaoBean implements StaffDao {
 		query.setInteger(0, stid);
 		return  query.list();
 	}
-
+        
+        public  Staff update(Staff staff){
+        	sessionFactory.getCurrentSession().update(staff);
+    		return staff;
+        	
+        }
+        
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}
-
-	public Staff getBranchManager(int bid) {
-		// TODO Auto-generated method stub
-		String hql="from Staff where stid=3 and bid=?";
-		Query query=sessionFactory.getCurrentSession().createQuery(hql);
-		query.setInteger(0, bid);
-		Staff staff=(Staff)query.list().get(0);
-		return staff;
 	}
 
 }

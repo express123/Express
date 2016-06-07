@@ -45,7 +45,7 @@
       alert("请联系在线客服修改密码！");
     }
     function register(){
-    	window.open("register.jsp","_blank");
+    	window.open("register.html","_blank");
     }
   </script>
 <style type ="text/css">

@@ -53,8 +53,8 @@
 				<th><a href="/expresscompany/page/foreground/index.jsp"><font color="white">首页</font></a></th>
 				<th><a href="/expresscompany/page/foreground/queryExpress.jsp" target="showiframe"><font color="white">运单追踪</font></a></th>
 				<th><s:a action="getall" namespace="/address" target="showiframe"><font color="white">自助寄件</font></s:a></th>
-				<th><a href="/expresscompany/page/foreground/queryFreight.jsp" target="showiframe"><font color="white">运费查询</font></a></th>
-				<th><a href="/expresscompany/page/foreground/aboutUs.jsp" target="showiframe"><font color="white">关于我们</font></a></th>
+				<th><a href="/expresscompany/page/foreground/queryFreight.html" target="showiframe"><font color="white">运费查询</font></a></th>
+				<th><a href="/expresscompany/page/foreground/aboutUs.html" target="showiframe"><font color="white">关于我们</font></a></th>
 			</tr>
 		</table>
 	<!-- 导航条结束 -->
@@ -88,7 +88,7 @@ win.height = win.Document.body.scrollHeight;
 </script>
 
 
-  <iframe  name="showiframe"  width="100%" height="100%" frameborder="0"  id="win" onload="Javascript:SetWinHeight(this)"  scrolling="no" marginheight="0" marginwidth="0"src="/expresscompany/page/foreground/showIndex.jsp" ></iframe>
+  <iframe  name="showiframe"  width="100%" height="100%" frameborder="0"  id="win" onload="Javascript:SetWinHeight(this)"  scrolling="no" marginheight="0" marginwidth="0"src="/expresscompany/page/foreground/showIndex.html" ></iframe>
     
 	<!-- 尾部开始 -->
 	<table align="center" bgcolor="#444444" width="100%" height="35px">

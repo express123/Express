@@ -2,9 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
   
-
-<s:iterator value="bancheslist" status="status">		
-	 <s:property value="bname"/> <s:property value="bphone"/><s:property value="%{stafflist[#status.index].sname}"/><br/>	 
-
+<s:iterator value="bancheslist" >		
+	 <s:property value="bname"/> <s:property value="bphone"/><br/>	 
 </s:iterator>
 
