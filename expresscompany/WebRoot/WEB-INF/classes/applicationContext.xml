@@ -13,7 +13,10 @@
 	<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
 
 
+
 	<property name="jdbcUrl" value="jdbc:sqlserver://115.159.126.198:1433;DatabaseName=express"/>
+
+	
 	<property name="user" value="sa"/>
 	<property name="password" value="zhbit2."/>
 
@@ -240,6 +243,7 @@
 	</bean>
 	<!-- 订单状态 -->
 
+
 	
 	
 	
@@ -259,6 +263,7 @@
 	</bean>
 	
  	
+
 
 </beans>
 

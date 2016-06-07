@@ -45,8 +45,21 @@
 	<package name="staffmanage" extends="struts-default" namespace="/staffmanage">
 		<action name="*Staff" class="staffAction" method="{1}">
 			<result name="LoginStaff">/page/background/manage.jsp</result>
-		        <result name="enterWebsite">/page/background/firstmanagerpage.html</result>
-               </action>
+
+		    <result name="fail">/page/foreground/login.jsp</result>
+		    <result name="websitemanageEnter">/page/background/websitemanage.jsp</result>
+		    <result name="clerkEnter">/page/foreground/login.jsp</result>
+		    <result name="courierEnter">/page/foreground/login.jsp</result>
+		     
+		    <result name="enterWebsiteManager">/page/background/Websitestaff.jsp</result>
+		    <result name="addWebSiteStaffsuccess">/showSuccess.jsp</result>
+            <result name="goToUpdateWebsitemanager">/page/background/upDateWebsiteManagerPage.jsp</result>
+			<result name="updateWebsitemanager">/showSuccess.jsp</result>
+			<result name="delectWebsitemanager">/showSuccess.jsp</result>  
+       
+            
+        </action>
+
 	</package>
 	<package name="logisitcsmanage" extends="struts-default" namespace="/logisitcsmanage">
 		<action name="*Logisitcs" class="logisitcsAction" method="{1}">
