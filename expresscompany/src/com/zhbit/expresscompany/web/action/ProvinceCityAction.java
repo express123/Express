@@ -25,7 +25,7 @@ public class ProvinceCityAction extends ActionSupport {
 		allprovince=provinceserive.getAllProvince();
 		allcity=cityserive.getAllCity();
 		int i;
-		for(i=1;i<allprovince.size();++i){
+		for(i=1;i<=allprovince.size();++i){
 			   Province province=allprovince.get(i-1);
 			   List<City>getcity=cityserive.getCity(province.getPid());
 			   Integer j=new Integer(i);
@@ -45,7 +45,7 @@ public class ProvinceCityAction extends ActionSupport {
 		allprovince=provinceserive.getAllProvince();
 		allcity=cityserive.getAllCity();
 		int i;
-		for(i=1;i<allprovince.size();++i){
+		for(i=1;i<=allprovince.size();++i){
 			   Province province=allprovince.get(i-1);
 			   List<City>getcity=cityserive.getCity(province.getPid());
 			   Integer j=new Integer(i);

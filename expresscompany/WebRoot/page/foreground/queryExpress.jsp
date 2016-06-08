@@ -5,6 +5,11 @@
 <html>
 	<head>
 		<title>北理速运</title>
+			<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css'/> ">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="<s:url value='/css/bootstrap-theme.min.css'/> ">
 	    <style type ="text/css">
 html,body{height:90%;overflow:hidden;}
 			#p1{
@@ -33,41 +38,38 @@ html,body{height:90%;overflow:hidden;}
 	<br><br>
 	
 	<!-- 查询快件页面 -->
-
-	<div >
-		<div id=left>
-		
-		</div>
-		<div id="mid">
-			<h1 id="p1">查询</h1>
-			<ul>
-			<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
-			<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
-			<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
-			<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
-
-			</ul>
-  
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<ul>
+				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
+				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
+				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
+				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
+				</ul>
+			</div>
 			
+			<div class="col-sm-10">
+				<div class="col-sm-2">
+					<ul>
+					<center>
+					<s:form action="getLogisitcs" namespace="/logisitcsmanage" method="post" target="showLogistics" >
+					<b id="p3">运单号&nbsp;&nbsp;</b>
+					<s:textfield name="oid"/>
+					<br>
+					<br>
+					<s:submit value="查询"/>
+					</s:form>
+					</center>
+					</ul>							
+				</div>
+				<div class="col-sm-10">
+					<center>
+					<iframe name="showLogistics" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no src="<s:url value='/page/foreground/logisitcs.jsp'/>"  ></iframe>	
+					</center>
+				</div>
+			</div>
 		</div>
-		<div id=right> 
-			<ul>
-			<s:form action="getLogisitcs" namespace="/logisitcsmanage" method="post" target="showLogistics" >
-			<b id="p3">运单号&nbsp;&nbsp;</b>
-			<s:textfield name="oid"/>
-			<br>
-			<br>
-			<s:submit style="font-size:20" value="查询"/>
-			</s:form>
-			</ul>
-		</div>	
-	</div>
-	
-	<div >
-		<center>
-		<h1>物流信息</h1>
-		<iframe name="showLogistics" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no src="logistics.html"  ></iframe>
-		</center>
 	</div>
 
     </body>

@@ -5,6 +5,11 @@
 <html>
 	<head>
 		<title>北理速运</title>
+			<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css'/> ">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="<s:url value='/css/bootstrap-theme.min.css'/> ">
 	    <style type ="text/css">
 			#p1{
 				font-size:32px;
@@ -35,25 +40,22 @@
 	<br><br>
 	
 	<!-- 查询快件页面 -->
+	
+<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<ul>
+				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
+				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
+				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
+				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
+				</ul>
+			</div>
+			
+			<div class="col-sm-10">
+				<div class="col-sm-4">
+<b id="p3">寄件地址：</b>
 
-	<div id=big>
-		<div id=left>
-		
-		</div>
-		<div id="mid">
-			<h1 id="p1">查询</h1>
-			<ul>
-			<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
-			<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
-			<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
-			<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
-			</ul>	
-		</div>
-		<div id=right> 
-			<ul>
-		
-			<b id="p3">寄件地址：</b>
-			请选择省和市
 			<s:form action="getFreight" namespace="/queryfreightmanage" method="post" target="showFreight">
 			<div class="doubles">
 				<s:doubleselect name = "spid" list="allprovince"  listKey="pid" listValue="pname" labelposition="left"				
@@ -70,19 +72,20 @@
   				  doubleName = "rcid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
   				</s:doubleselect>
 			</div>
-			<b id="p3">输入重量</b><s:textfield name="weight"/>
+			<b id="p3">输入重量</b><s:textfield size="2" name="weight"/><b id="p3">kg</b><br>
 			<s:submit value="查询"/>
-			</s:form>
-			</ul>
-		</div>	
+			</s:form>				
+						</div>
+						<div class="col-sm-8">
+						<center>
+					<iframe name="showFreight" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no src="<s:url value='/page/foreground/freight.jsp'/>" ></iframe>
+						</center>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div id=big>
-		<center>
-		<h1>运费</h1>
-		<iframe name="showFreight" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no src="<s:url value='/page/foreground/freight.html'/>" ></iframe>
-		</center>
-	</div>
-	
+    
+    
+   
     </body>
 </html>

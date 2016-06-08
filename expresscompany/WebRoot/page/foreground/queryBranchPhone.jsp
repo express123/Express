@@ -4,13 +4,15 @@
 
 <html>
 	<head>
+<link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css'/> ">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="<s:url value='/css/bootstrap-theme.min.css'/> ">
 		<title>北理速运</title>
 	    <style type ="text/css">
 	    
 	      
-			.inline_div{
-				display:inline;
-			}
+			
 			#header{
 				width:100%;
 				height:120px;
@@ -55,55 +57,45 @@
 	<br><br>
 	
 	<!-- 查询快件页面 -->
-
-	<div id=big>
-		<div id=left>
-		
-		</div>
-		<div id="mid">
-			<h1 id="p1">查询</h1>
-			<ul>
-			<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
-			<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
-			<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
-			<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
-			</ul>
-  
+	
+<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<ul>
+				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
+				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
+				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
+				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
+				</ul>
+			</div>
 			
+			<div class="col-sm-10">
+				<div class="col-sm-4">
+						<s:form action="getphonesQueryBranch" namespace="/querybranchmanage" method="post" target="showbranchPhone">
+						<ul>
+
+						请选择省和市
+						<div class="doubles">
+							<s:doubleselect name = "pid" list="allprovince"  listKey="pid" listValue="pname" labelposition="left"
+  			 			 	doubleName = "cid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
+  							</s:doubleselect>
+  						</div>
+						<br>
+						<s:submit value="查询"/>
+						</ul>
+						</s:form>							
+						</div>
+						<div class="col-sm-8">
+						<center>
+						<iframe name="showbranchPhone" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no  src="<s:url value='/page/foreground/branchPhone.jsp'/>"  ></iframe>		
+						</center>
+				</div>
+			</div>
 		</div>
-		<div id=right> 
-		<s:form action="getphonesQueryBranch" namespace="/querybranchmanage" method="post" target="showbranchPhone">
-			<ul>
-
-			请选择省和市
-		<div class="doubles">
-			<s:doubleselect name = "pid" list="allprovince"  listKey="pid" listValue="pname" labelposition="left"
-  			  doubleName = "cid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
-  			</s:doubleselect>
-  		</div>
-
-			<br>
-			<br>
-			<input type="submit"style="font-size:20" value="查询">
-			</ul>
-			</s:form>
-		</div>	
 	</div>
-	
-	
 
-	
 
-	
-	
-	<div id=big>
-		<center>
-		<h1>客服电话</h1>
-		<iframe name="showbranchPhone" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no  src="<s:url value='/page/foreground/branchPhone.html'/>"  ></iframe>
-		</center>
-	</div>
-	
-	
+
 
     </body>
 </html>
