@@ -9,7 +9,7 @@
     		#body2{
 			width:400px;
 			height:150px;
-			border: 7px solid #9CF;
+			border: 5px solid #9CF;
 			margin:1%;
 		}
  </style>

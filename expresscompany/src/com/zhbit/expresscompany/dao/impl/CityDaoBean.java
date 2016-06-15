@@ -35,6 +35,14 @@ public class CityDaoBean implements CityDao{
 		return city;
 	}
 	
+	public City getCityByname(String cname){//找出该名字下的城市详情
+		String hql="from City where cname = ? ";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, cname);
+		City city=(City)query.list().get(0);
+		return city;
+	}
+	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}

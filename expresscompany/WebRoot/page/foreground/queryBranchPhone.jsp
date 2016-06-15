@@ -56,16 +56,16 @@
 
 	<br><br>
 	
-	<!-- 查询快件页面 -->
+	
 	
 <div class="container">
 		<div class="row">
 			<div class="col-sm-2">
 				<ul>
 				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
-				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
-				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
-				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
+				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage"  target="showiframe">查询运费</s:a></li>
+				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询网点</s:a></li>
+				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询客服电话</s:a></li>
 				</ul>
 			</div>
 			

@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.zhbit.expresscompany.dao.BanchesDao;
 import com.zhbit.expresscompany.domain.Banches;
-import com.zhbit.expresscompany.domain.Notice;
 import com.zhbit.expresscompany.service.BanchesSerive;
 
 

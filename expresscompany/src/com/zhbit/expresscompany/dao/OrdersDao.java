@@ -7,4 +7,7 @@ public interface OrdersDao {
 	Orders update(Orders order);
 	void delete(Orders order);
 	Orders getOrdersById(int oid);
+	List<Orders> query();
+	List<Orders> getNotCompletedOrders(String uid);
+	List<Orders> getNotOrders(int osid);
 }

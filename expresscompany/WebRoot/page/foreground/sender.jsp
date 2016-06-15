@@ -4,47 +4,8 @@
 <html>
   <head>
     <title>自助寄件</title>
+    
     <script src="/expresscompany/js/jquery-1.90.js" type="text/javascript"></script>
-    <script type="text/javascript">
-	/*var xmlhttp;
-	function createXMLHTTP() {
-		if (window.XMLHttpRequest) {
-			xmlhttp = new XMLHttpRequest();
-		} else {
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-	}
-	
-	function showCity(pid) {
-		createXMLHTTP();
-		xmlhttp.open("post", "CityAction.java?pid=" + pid);
-		xmlhttp.onreadystatechange = showCityCallback;
-		xmlhttp.send();
-	}
-	
-	function showCityCallback() {
-		if (xmlhttp.readyState == 4) {
-			if (xmlhttp.status == 200) {
-				var text = xmlhttp.responseText;
-				$("#cityid option:gt(0)").remove();
-				var citytexts = text.split("|");
-				$.each(citytexts, function(i, n) {
-					var citys = n.split(":");
-					var cid = citys[0];
-					var cname = citys[1];
-					$("#cityid").append("<option value='"+cid+"'>" + cname + "</option>");
-				});
-			}
-		}
-	}
-	$(function (){
-		$("#province").bind("change",function(){
-		alert($("#province :selected").val());
-		});
-	}); 
-	*/
-
-	</script>
 	<style type ="text/css">
 		#body1{
 			width:100%;
@@ -91,6 +52,11 @@
 				font-size:30px;
 				font-weight:550;
 			}
+		#p5{
+				font-size:20px;
+				font-weight:400;
+				color:red;
+			}
 			.doubles br{
 			display: none;
 			}
@@ -109,21 +75,6 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.usname" maxlength="10" style='font-size:18px' />
 				<br>
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;请选择省/市：</p>
-				<!--<select id="province" name="provinces" >
-	    			<option value="0">---省份---</option>
-		    		<s:iterator value="allprovince">
-		    			<option value="${pid}">${pname }</option>
-		    		</s:iterator>
-    			</select> 
-				<select id="cityid" name="cityid">
-	    			<option value="0">---城市---</option>
-	    			<option></option>
-    		 	</select>--> 
-
- 	  			<!--<s:doubleselect list="allprovince" listKey="pid" listValue="pname"
-			       doubleName="citid" doubleList="cityMap.get(top.pid)"
-			       doubleListKey="cid" doubleListValue="cname" >
- 	  			</s:doubleselect>-->
  	  			<div class="doubles">&nbsp;&nbsp;&nbsp;&nbsp;
  	  			<s:doubleselect name="spid" list="allprovince" listKey="pid" listValue="pname" labelposition="top"
 			       doubleName="scid" doubleList="cityMap.get(top.pid)"
@@ -132,7 +83,7 @@
  	  			</div>
     		 	
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;详细地址：</p>
-					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.usaddress" maxlength="16" style='font-size:18px' />
+					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.usaddress" maxlength="32" style='font-size:18px' />
 				<br>
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;手机号码：</p>
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.usphone" maxlength="11" style='font-size:18px' />
@@ -155,7 +106,7 @@
  	  			</div>
 				
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;详细地址：</p>
-					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.uraddress" maxlength="16" style='font-size:18px' />
+					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.uraddress" maxlength="32" style='font-size:18px' />
 				<br>
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;手机号码：</p>
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.urphone" maxlength="11" style='font-size:18px' />
@@ -170,9 +121,12 @@
 				<br>
 				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;物品名称：</p>
 					&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.owname" maxlength="10" style='font-size:18px' />
-				<br>
-				<p id="p3">&nbsp;&nbsp;&nbsp;&nbsp;快件重量：</p>
-				&nbsp;&nbsp;&nbsp;&nbsp;<s:textfield name="orders.oweight" maxlength="2" size="2" style='font-size:18px' />Kg&nbsp;&nbsp;(注：不能超过40Kg) 
+				<br><br>
+				<font id="p3">&nbsp;&nbsp;&nbsp;&nbsp;重量：</font>
+				<s:textfield name="orders.oweight" id="weight" maxlength="2" size="2" style='font-size:18px'/>Kg&nbsp;&nbsp;(注：不能超过50Kg) 
+				<br><br>
+				<font id="p5">&nbsp;&nbsp;&nbsp;&nbsp;运费：</font>
+				<s:textfield name="orders.omoney" id="momey" maxlength="2" size="2" style='font-size:18px' readonly="true" value="10"/><font id="p5">元</font>
 				<br><br>
 			</div>
 			
@@ -185,6 +139,62 @@
 		<br><br>
 		</div>
 		</s:form>
+
 		<!-- 寄件代码结束 -->
+	<script type="text/javascript">
+		$ (function () {
+                $("#weight").bind("blur", function () {
+                	Money();
+                });
+                $("#addorders_spid").bind("change", function () {
+                	Money();
+                });
+                $("#addorders_rpid").bind("change", function () {
+                	Money();
+                });
+                function Money(){
+                	var WT=$("#weight").val();//获取重量
+                	WT=$.trim(WT);
+                	var SP=$("#addorders_spid").val();//获取省的名称
+                	var RP=$("#addorders_rpid").val();
+                	if(WT==''){
+                		if(SP==RP){
+                			$("#weight").val("");//清空输入框的内容
+                			$("#momey").val(10);
+                		}else{
+                			$("#weight").val("");//清空输入框的内容
+                			$("#momey").val(20);
+                		}
+                	}else{
+                		if(!isNaN(WT)){
+	                		if(Number(WT)>50){
+	                			$("#weight").val("");//清空输入框的内容
+		                		//$("#momey").val("");
+		                		Money();
+	                			alert("快件重量不能超过50Kg");
+	                		}else{
+	                			if(Number(WT)<0){
+		                			$("#weight").val("");
+		                			//$("#momey").val("");
+		                			Money();
+		                			alert("快件重量不能小于0Kg!");
+	                			}else{
+	                				if(SP==RP){
+			                			$("#momey").val(Math.ceil((Number(WT)/10))*10);
+			                		}else{
+			                			$("#momey").val(Math.ceil((Number(WT)/10))*10+10);
+			                		}
+	                			}
+	                		}
+	                	}else{
+	                		$("#weight").val("");
+		                	//$("#momey").val("");
+		                	Money();
+	                		alert("快件重量请不要输入非数字字符!");
+	                	}
+                	}
+                }
+            });
+	</script>
   </body>
 </html>

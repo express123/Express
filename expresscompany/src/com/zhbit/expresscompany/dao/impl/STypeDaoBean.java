@@ -7,7 +7,6 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import com.zhbit.expresscompany.dao.STypeDao;
-import com.zhbit.expresscompany.domain.Notice;
 import com.zhbit.expresscompany.domain.SType;
 
 public class STypeDaoBean implements STypeDao{

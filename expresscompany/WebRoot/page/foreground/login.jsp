@@ -6,48 +6,7 @@
   <head>
     <title>登录页面</title>
     <script src="/expresscompany/js/jquery-1.90.js" type="text/javascript"></script>
- <script>
-    function change(){/*div和图片充满屏幕*/
-  	    var sh=$(window).height();
-  	    $("#leftbody").height(sh);
-        $("#rightbody").height(sh);
-    }
-  	$(function(){
-  		change();
-  	})
-  	$(window).resize(function(){
-  		change();
-  	})
-    function showuserbo(){
-      var staffbo=document.getElementById("staffbody");
-      var userbo=document.getElementById("userbody");
-      var selectus=document.getElementById("selectuser");
-      var selectsta=document.getElementById("selectstaff");
-      var forgetpd=document.getElementById("forgetpd");
-      staffbo.style.display="none";
-      userbo.style.display="block";
-      selectus.className="p1";
-      selectsta.className="p2";
-      forgetpd.className="p3";
-    }
-    function showstaffbo(){
-      var staffbo=document.getElementById("staffbody");
-      var userbo=document.getElementById("userbody");
-      var selectus=document.getElementById("selectuser");
-      var selectsta=document.getElementById("selectstaff");
-      staffbo.style.display="block";
-      userbo.style.display="none";
-      selectus.className="p2";
-      selectsta.className="p1";
-    }
-    function forget(){
-      var forgetpd=document.getElementById("forgetpd");
-      alert("请联系在线客服修改密码！");
-    }
-    function register(){
-    	window.open("register.jsp","_blank");
-    }
-  </script>
+ 
 <style type ="text/css">
 *{margin:0;padding:0;}
 #leftbody{
@@ -97,12 +56,22 @@
 #getUser_0{
   font-size: 18px;
   color:white;
-  background: #9CF;
+  background: #082E54;
+}
+#getStaff_0{
+  font-size: 18px;
+  color:white;
+  background: #082E54;
+}
+#getStaff_1{
+  font-size: 18px;
+  color:white;
+  background: #082E54;
 }
 .button{
   font-size: 18px;
   color:white;
-  background: #9CF;
+  background: #082E54;
 }
 </style>
 
@@ -123,30 +92,77 @@
 <div id="userbody">
 <br><br>
   <center><s:form action="getUser" namespace="/usermanage" method="post">
-    	用户名：<s:textfield name="user.uid"/><br/><br/>
-    	密码：<s:password name="user.upd"/><br/><br/>
+    	<font>用户名：</font><s:textfield name="user.uid"/><br/><br/>
+    	<font>密&nbsp;&nbsp;&nbsp;&nbsp;码：</font><s:password name="user.upd"/><br/><br/>
     	<s:submit value="登录" class="button"/>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="button"  value="注册" class="button" onClick="register()"/>
     </s:form>
      </center>
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;<b id="forgetpd" onClick="forget()">忘记密码？</b><br>
-    <br> 
+    <br><center><font class="p3" onClick="backIndex()">返回首页</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b id="forgetpd" onClick="forget()">忘记密码？</b></center><br>
+     
     </div>
     <div id="staffbody">
-    <br><br>
-    
-    
+    <br><br> 
   <center><s:form action="getStaff" namespace="/staffmanage" method="post">
-        	职工号：<s:textfield name="staff.sid"/><br/><br/>
-    	密码：<s:password name="staff.spd"/><br/><br/>
-    	<s:submit value="登录" />&nbsp;&nbsp;<s:reset value="重置"/>
+        	<font>职工号：</font><s:textfield name="staff.sid"/><br/><br/>
+    	<font>密&nbsp;&nbsp;&nbsp;&nbsp;码：</font><s:password name="staff.spd"/><br/><br/>
+    	<s:submit value="登录" />&nbsp;&nbsp;&nbsp;&nbsp;
+    	<input value="重置" id="getStaff_1" type="reset">
     </s:form>
-    <br>
     </center> 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="p3" onClick="backIndex()">返回首页</font>
+    <br><br>
     </div>
     <br>
     <br>
     </div>
     </div>
+    <script>
+    function change(){/*div和图片充满屏幕*/
+  	    var sh=$(window).height();
+  	    $("#leftbody").height(sh);
+        $("#rightbody").height(sh);
+    }
+  	$(function(){
+  		change();
+  	})
+  	$(window).resize(function(){
+  		change();
+  	})
+    function showuserbo(){
+      var staffbo=document.getElementById("staffbody");
+      var userbo=document.getElementById("userbody");
+      var selectus=document.getElementById("selectuser");
+      var selectsta=document.getElementById("selectstaff");
+      var forgetpd=document.getElementById("forgetpd");
+      staffbo.style.display="none";
+      userbo.style.display="block";
+      selectus.className="p1";
+      selectsta.className="p2";
+      forgetpd.className="p3";
+    }
+    function showstaffbo(){
+      var staffbo=document.getElementById("staffbody");
+      var userbo=document.getElementById("userbody");
+      var selectus=document.getElementById("selectuser");
+      var selectsta=document.getElementById("selectstaff");
+      staffbo.style.display="block";
+      userbo.style.display="none";
+      selectus.className="p2";
+      selectsta.className="p1";
+    }
+    function forget(){
+      var forgetpd=document.getElementById("forgetpd");
+      alert("请联系在线客服修改密码！");
+    }
+    function register(){
+    	window.open("register.jsp",'_self');
+    	window.close();
+    }
+    function backIndex(){
+    	window.open("index.jsp",'_self');
+    	window.close();
+    }
+  </script>
   </body>
 </html>

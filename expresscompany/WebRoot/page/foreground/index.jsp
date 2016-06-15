@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -48,16 +48,25 @@
 	</div>
 	<!-- 网页头部结束 -->
 	<!-- 导航条开始 -->
-	<table align="center" bgcolor="#444444" width="100%" height="35px">
-			<tr>
-				<th><a href="/expresscompany/page/foreground/index.jsp"><font color="white">首页</font></a></th>
-				<th><a href="/expresscompany/page/foreground/queryExpress.jsp" target="showiframe"><font color="white">运单追踪</font></a></th>
-				<th><s:a action="getall" namespace="/address" target="showiframe"><font color="white">自助寄件</font></s:a></th>
-				<th><a href="/expresscompany/page/foreground/queryFreight.jsp" target="showiframe"><font color="white">运费查询</font></a></th>
-				<th><a href="/expresscompany/page/foreground/aboutUs.jsp" target="showiframe"><font color="white">关于我们</font></a></th>
-			</tr>
+	
+<table align="center" bgcolor="#444444" width="100%" height="35px">
+			
+<tr>
+				
+<th><a href="/expresscompany/page/foreground/index.jsp"><font color="white">首页</font></a></th>
+				
+<th><a href="/expresscompany/page/foreground/queryExpress.jsp" target="showiframe"><font color="white">运单追踪</font></a></th>
+				
+<th><s:a action="getall" namespace="/address" target="showiframe"><font color="white">自助寄件</font></s:a></th>
+				
+<th><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage"  target="showiframe"><font color="white">运费查询</font></s:a></th>
+				
+<th><a href="/expresscompany/page/foreground/aboutUs.jsp" target="showiframe"><font color="white">关于我们</font></a></th>
+			
+</tr>
 		</table>
-	<!-- 导航条结束 -->
+	
+<!-- 导航条结束 -->
     <script type="text/javascript">
 function SetWinHeight(obj)
 

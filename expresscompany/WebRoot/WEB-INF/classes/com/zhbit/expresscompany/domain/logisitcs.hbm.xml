@@ -9,6 +9,6 @@
 		</id>		
 		<property name="oid" type="int" />
 		<property name="lcontext" type="string" length="128"/>
-		<property name="ltime" type="date" />
+		<property name="ltime" />
 	</class>
 </hibernate-mapping>

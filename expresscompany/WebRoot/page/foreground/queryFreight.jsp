@@ -10,6 +10,8 @@
 
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <link rel="stylesheet" href="<s:url value='/css/bootstrap-theme.min.css'/> ">
+
+ <script src="/expresscompany/js/jquery-1.90.js" type="text/javascript"></script>
 	    <style type ="text/css">
 			#p1{
 				font-size:32px;
@@ -72,13 +74,13 @@
   				  doubleName = "rcid" doubleList="cityMap.get(top.pid)"  doubleListKey="cid" doubleListValue="cname" >
   				</s:doubleselect>
 			</div>
-			<b id="p3">输入重量</b><s:textfield size="2" name="weight"/><b id="p3">kg</b><br>
-			<s:submit value="查询"/>
+			<b id="p3">输入重量</b><s:textfield id="cWeight" size="2" name="weight" maxlength="2"/><b id="p3">kg</b><br>
+			<s:submit value="查询" />
 			</s:form>				
 						</div>
 						<div class="col-sm-8">
 						<center>
-					<iframe name="showFreight" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no src="<s:url value='/page/foreground/freight.jsp'/>" ></iframe>
+					<iframe name="showFreight" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no src="<s:url value='/page/foreground/freight.html'/>" ></iframe>
 						</center>
 				</div>
 			</div>
@@ -86,6 +88,41 @@
 	</div>
     
     
-   
+   <script type="text/javascript">
+		$ (function () {
+                $("#cWeight").bind("blur", function () {
+                	Money();
+                });
+                $("#getFreight_0").bind("click",function (){
+                	Money();
+                });
+                function Money(){
+                	var WT=$("#cWeight").val();//获取重量
+					WT=$.trim(WT);
+                	if(WT==''){
+                		$("#cWeight").val("");
+              			alert("快件重量不能为空");
+                	}else{
+                		if(!isNaN(WT)){
+	                		if(Number(WT)>50){
+	                			$("#cWeight").val("");//清空输入框的内容		                		                	
+	                			alert("快件重量不能超过50Kg!");
+	                		}else{
+	                			if(Number(WT)<0){
+		                			$("#cWeight").val("");
+		                			alert("快件重量不能小于0Kg!");
+	                			}else{
+	               		
+	                			}
+	                		}
+	                	}else{
+	                		$("#cWeight").val("");
+	                		alert("快件重量请不要输入非数字字符!");
+	                	}
+                	}
+                }
+            });
+	</script>
+	
     </body>
 </html>

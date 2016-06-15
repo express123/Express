@@ -18,7 +18,7 @@ public class StaffDaoBean implements StaffDao {
 
 	public void delect(Staff staff) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().update(staff);
+		sessionFactory.getCurrentSession().delete(staff);
 	}
 
 	public Staff getStaffBySid(int sid) {
@@ -26,12 +26,18 @@ public class StaffDaoBean implements StaffDao {
 		return (Staff) sessionFactory.getCurrentSession().load(Staff.class, sid);
 	}
 
-        public List<Staff>  getStaffByStid(int stid){
+    public List<Staff>  getStaffByStid(int stid){
 		String hql="from Staff where stid=?";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger(0, stid);
 		return  query.list();
 	}
+        
+         public  Staff update(Staff staff){
+        	sessionFactory.getCurrentSession().update(staff);
+    		return staff;
+        	
+        }
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -49,5 +55,12 @@ public class StaffDaoBean implements StaffDao {
 		Staff staff=(Staff)query.list().get(0);
 		return staff;
 	}
-
+   
+    public List<Staff> getStaffByBid(int bid){
+    	System.out.println("传入入网点ID1"+"bid");
+    	String hql="from Staff where bid=?";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger(0, bid);
+		return query.list();
+	}
 }

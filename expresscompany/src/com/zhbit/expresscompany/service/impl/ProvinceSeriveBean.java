@@ -40,7 +40,9 @@ public class ProvinceSeriveBean implements ProvinceSerive{
 	 
 	}
 	 
-	
+	public Province getProvinceByname(String pname){
+		return provinceDao.getProvinceByname(pname);
+	}
 	
 	
 }

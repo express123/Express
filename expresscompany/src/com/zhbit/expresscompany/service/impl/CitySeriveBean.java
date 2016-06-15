@@ -34,5 +34,8 @@ public class CitySeriveBean implements CitySerive{
 		this.cityDao = cityDao;
 	}
 	
+	public City getCityByname(String cname){
+		return cityDao.getCityByname(cname);
+	}
 	
 }

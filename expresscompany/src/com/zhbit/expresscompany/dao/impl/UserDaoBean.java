@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 
 import com.zhbit.expresscompany.dao.UserDao;
-import com.zhbit.expresscompany.domain.Notice;
 import com.zhbit.expresscompany.domain.User;
 
 public class UserDaoBean implements UserDao {

@@ -11,9 +11,12 @@ public class LogisitcsAction extends ActionSupport {
 	private int oid;
 	private List<Logisitcs>logisitcslist;
 	public String get(){
+		if(oid>=10000000&&oid<100000000){
 		System.out.println("----------------------"+oid);
 		logisitcslist=serive.getLogisitcs(oid);
 		return SUCCESS;
+		}
+		return "error";
 	}
 	
 	

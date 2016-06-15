@@ -1,4 +1,6 @@
 package com.zhbit.expresscompany.web.action;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +21,10 @@ public class OrdersAction extends ActionSupport {
 	private int rcid;//收件城市ID
 	private ProvinceSerive pserive;
 	private CitySerive cserive;
-	
+	private List<Orders> allOrders;
+	private List<AllOrders> allOrderss=new ArrayList<AllOrders>();
+	private OState oState;
+	private OStateSerive serive2;
 	public String addOrders(){
 		Province sprovince=new Province();
 		City scity=new City();
@@ -37,20 +42,42 @@ public class OrdersAction extends ActionSupport {
 		rprovince=pserive.getProvinceById(rpid);//求收件详细地址
 		rcity=cserive.getCityByCId(rcid);
 		String uraddress=rprovince.getPname()+"-"+rcity.getCname()+"-"+orders.getUraddress();
-		orders.setUraddress(uraddress);
-		
-		int weight=(int)orders.getOweight()/10;//计算运费
-		orders.setOmoney(weight*10);
-		if(!sprovince.equals(rprovince)){
-			orders.setOmoney(weight*10+10);
-		}
-		
-		orders.setOsid(1);//订单状态
-		orders.setUid(null);
-		serive.addOrders(orders);
+		orders.setUraddress(uraddress);		
 		return SUCCESS;
 	}
-
+	
+	public String ADDOrders(){
+		Date date=new Date();
+		orders.setObegintime(date);
+		orders.setOsid(1);//订单状态
+		orders.setUid(null);//游客下单
+		orders=serive.addOrders(orders);
+		return SUCCESS;
+	}
+    
+	public String GetAllOrders(){
+		allOrders=serive.getAllOrders();
+		for(int i=0;i<allOrders.size();i++){
+		AllOrders allOrders1=new AllOrders();
+		allOrders1.setOid(allOrders.get(i).getOid());
+		allOrders1.setUid(allOrders.get(i).getUid());
+		allOrders1.setUsname(allOrders.get(i).getUsname());
+		allOrders1.setUsphone(allOrders.get(i).getUsphone());
+		allOrders1.setUsaddress(allOrders.get(i).getUsaddress());
+		allOrders1.setUrname(allOrders.get(i).getUrname());
+		allOrders1.setUrphone(allOrders.get(i).getUrphone());
+		allOrders1.setUraddress(allOrders.get(i).getUraddress());
+		allOrders1.setOremark(allOrders.get(i).getOremark());
+		allOrders1.setOwname(allOrders.get(i).getOwname());
+		allOrders1.setOweight(allOrders.get(i).getOweight());
+		allOrders1.setObegintime(allOrders.get(i).getObegintime());
+		allOrders1.setOendtime(allOrders.get(i).getOendtime());
+		allOrders1.setOmoney(allOrders.get(i).getOmoney());
+		allOrders1.setOsname(serive2.getOStateById(allOrders.get(i).getOsid()).getOsname());
+		allOrderss.add(allOrders1);
+		}
+		return SUCCESS;
+	}
 
 	public Orders getOrders() {
 		return orders;
@@ -151,7 +178,39 @@ public class OrdersAction extends ActionSupport {
 		this.cserive = cserive;
 	}
 
+	public List<Orders> getAllOrders() {
+		return allOrders;
+	}
+
+	public void setAllOrders(List<Orders> allOrders) {
+		this.allOrders = allOrders;
+	}
+
+	public List<AllOrders> getAllOrderss() {
+		return allOrderss;
+	}
+
+	public void setAllOrderss(List<AllOrders> allOrderss) {
+		this.allOrderss = allOrderss;
+	}
+
+	public OState getoState() {
+		return oState;
+	}
+
+	public void setoState(OState oState) {
+		this.oState = oState;
+	}
+
+	public OStateSerive getSerive2() {
+		return serive2;
+	}
+
+	public void setSerive2(OStateSerive serive2) {
+		this.serive2 = serive2;
+	}
 
 	
+
 	
 }

@@ -9,4 +9,5 @@ public interface CitySerive {
      List<City> getAllCity();
      City getCityByCId(int cid);
      City getCityByCid(int cid);
+     City getCityByname(String cname);
 }

@@ -13,9 +13,9 @@
 	<property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
 
 
-	<property name="jdbcUrl" value="jdbc:sqlserver://115.159.126.198:1433;DatabaseName=express"/>
+	<property name="jdbcUrl" value="jdbc:sqlserver://localhost;DatabaseName=express"/>
 	<property name="user" value="sa"/>
-	<property name="password" value="zhbit2."/>
+	<property name="password" value="zhbit"/>
 
 	<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
 	<property name="initialPoolSize" value="1"/>
@@ -35,7 +35,6 @@
  	<property name="dataSource" ref="datasource"/>
  	<property name="mappingResources">
     	<list>
-      	<value>com/zhbit/expresscompany/domain/notice.hbm.xml</value>
       	<value>com/zhbit/expresscompany/domain/user.hbm.xml</value>
       	<value>com/zhbit/expresscompany/domain/usenders.hbm.xml</value>
     	<value>com/zhbit/expresscompany/domain/urecipients.hbm.xml</value>
@@ -87,19 +86,6 @@
 	  	<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionPointcut"/>
 	</aop:config>
 	
-	<!-- 辅助 -->
-	<bean id="noticeDao" class="com.zhbit.expresscompany.dao.impl.NoticeDaoBean">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-	
-	<bean id="noticeSerive" class="com.zhbit.expresscompany.service.impl.NoticeSeriveBean">
-		<property name="noticeDao" ref="noticeDao"/>
-	</bean>
-	
-	<bean id="noticeAction" class="com.zhbit.expresscompany.web.action.NoticeAction" scope="request">
-		<property name="serive" ref="noticeSerive"/>
-	</bean>
-	<!-- 结束 -->
 	
 	<bean id="userDao" class="com.zhbit.expresscompany.dao.impl.UserDaoBean">
 		<property name="sessionFactory" ref="sessionFactory"/>
@@ -109,6 +95,7 @@
 	</bean>
 	<bean id="userAction" class="com.zhbit.expresscompany.web.action.UserAction" scope="request">
 		<property name="serive" ref="userSerive"/>
+		<property name="serive1" ref="ordersSerive"/>
 	</bean>
 	
 	
@@ -153,6 +140,7 @@
 		<property name="serive" ref="banchesSerive"/>
 		<property name="serive1" ref="provinceSerive"/>
 		<property name="serive2" ref="citySerive"/>
+		<property name="serive3" ref="staffSerive"/>
 	</bean>
 	
 
@@ -196,6 +184,10 @@
 		<property name="serive" ref="staffSerive"/>
 		<property name="serive1" ref="sTypeSerive"/>
 		<property name="serive2" ref="banchesSerive"/>
+		<property name="serive3" ref="ordersSerive"/>
+		<property name="serive4" ref="provinceSerive"/>
+		<property name="serive5" ref="citySerive"/>
+		<property name="serive6" ref="logisitcsSerive"/>
 	</bean>
 	
 	<bean id="provinceCityAction" class="com.zhbit.expresscompany.web.action.ProvinceCityAction" scope="request">
@@ -223,6 +215,7 @@
 		<property name="serive" ref="ordersSerive"/>
 		<property name="pserive" ref="provinceSerive"/>
 		<property name="cserive" ref="citySerive"/>
+		<property name="serive2" ref="ostateSerive"/>
 	</bean>
 	<!-- 订单 -->
 	

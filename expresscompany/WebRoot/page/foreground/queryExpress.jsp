@@ -5,12 +5,15 @@
 <html>
 	<head>
 		<title>北理速运</title>
-			<!-- 新 Bootstrap 核心 CSS 文件 -->
+<!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="<s:url value='/css/bootstrap.min.css'/> ">
 
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
 <link rel="stylesheet" href="<s:url value='/css/bootstrap-theme.min.css'/> ">
+<script src="/expresscompany/js/jquery-1.90.js" type="text/javascript"></script>
+	   	   
 	    <style type ="text/css">
+
 html,body{height:90%;overflow:hidden;}
 			#p1{
 				font-size:32px;
@@ -42,10 +45,10 @@ html,body{height:90%;overflow:hidden;}
 		<div class="row">
 			<div class="col-sm-2">
 				<ul>
-				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
-				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
-				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
-				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
+				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp" target="showiframe">查询快件</a></li>
+				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询运费</s:a></li>
+				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询网点</s:a></li>
+				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询客服电话</s:a></li>
 				</ul>
 			</div>
 			
@@ -55,7 +58,7 @@ html,body{height:90%;overflow:hidden;}
 					<center>
 					<s:form action="getLogisitcs" namespace="/logisitcsmanage" method="post" target="showLogistics" >
 					<b id="p3">运单号&nbsp;&nbsp;</b>
-					<s:textfield name="oid"/>
+					<s:textfield id="oID" name="oid"  maxlength="8"/>
 					<br>
 					<br>
 					<s:submit value="查询"/>
@@ -71,6 +74,31 @@ html,body{height:90%;overflow:hidden;}
 			</div>
 		</div>
 	</div>
-
+	
+   <script type="text/javascript">
+		$ (function () {
+                $("#oID").bind("blur", function () {
+                	Logisitcs();
+                });
+                $("#getLogisitcs_0").bind("click",function (){
+                	Logisitcs();
+                });
+                function Logisitcs(){
+                	var WT=$("#oID").val();
+					WT=$.trim(WT);
+                	if(WT==''){
+                		$("#oID").val("");
+              			alert("运单号不能为空");
+                	}else{
+                		if(!isNaN(WT)){
+	                
+	                	}else{
+	                		$("#oID").val("");
+	                		alert("运单号请不要输入非数字字符!");
+	                	}
+                	}
+                }
+            });
+    </script>
     </body>
 </html>

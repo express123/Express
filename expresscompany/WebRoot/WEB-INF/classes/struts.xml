@@ -18,9 +18,12 @@
 		</action>
 	</package>
 	
-        <package name="banchesmanage" extends="struts-default" namespace="/banchesmanage">
-		<action name="*Banches" class="banchesAction" method="{1}">
+        
+<package name="banchesmanage" extends="struts-default" namespace="/banchesmanage">
+		
+         <action name="*Banches" class="banchesAction" method="{1}">
 			<result name="success">/showSuccess.jsp</result>
+			<result name="fail">/Fail.jsp</result>
 			<result name="input">/page/background/upDatePage.jsp</result>
 			<result name="saveupdate">/showSuccess.jsp</result>
 		</action>
@@ -30,69 +33,188 @@
 		</action>
         </package>
 
-	<package name="usermanage" extends="struts-default" namespace="/usermanage">
+	
+<package name="usermanage" extends="struts-default" namespace="/usermanage">
 		<action name="*User" class="userAction" method="{1}">
 			<result name="success">/index.jsp</result>
 			<result name="input">/registerTest.jsp</result>
-			<result name="LoginUser">/page/foreground/index.jsp</result>
+			<result name="LoginUser">/page/background/userBackIndex.jsp</result>
+		    
+		    <result name="goToUserPage">/page/background/UserPage.jsp</result>
+		    <result name="goToUpdateUser">/page/background/UpDateUserPage.jsp</result>
+		    <result name="UpdateUserSuccess">/showSuccess.jsp</result>
+		    <result name="goToDelectUser">/page/background/UpdateUserPage.jsp</result>
+		    <result name="DelectUserSuccess">/showSuccess.jsp</result>
+ </action>
+               
+		<action name="Register" class="userAction" method="register">
+				<result>/page/background/userBackIndex.jsp</result>
 		</action>
-                <action name="Register" class="userAction" method="register">
-			<result>/page/foreground/index.jsp</result>
+	
+		<action name="showIndex" class="userAction" method="showIndex">
+				<result>/page/background/userIndex.jsp</result>
+		</action>
+		
+		<action name="updateUserPD" class="userAction" method="updateUserPD">
+				<result>/page/background/updateUserPDSuccess.jsp</result>
+		</action>
+		
+		<action name="updateUserData" class="userAction" method="updateUserData">
+				<result>/page/background/userData.jsp</result>
+		</action>
+		
+		<action name="exit" class="userAction" method="clearSession">
+				<result>/page/foreground/index.jsp</result>
 		</action>
 
-	</package>
 	
-	<package name="staffmanage" extends="struts-default" namespace="/staffmanage">
+</package>
+	
+	
+<package name="staffmanage" extends="struts-default" namespace="/staffmanage">
 		<action name="*Staff" class="staffAction" method="{1}">
 			<result name="LoginStaff">/page/background/manage.jsp</result>
-		        <result name="enterWebsite">/page/background/firstmanagerpage.html</result>
-               </action>
-	</package>
-	<package name="logisitcsmanage" extends="struts-default" namespace="/logisitcsmanage">
+		    <result name="fail">/page/foreground/login.jsp</result>
+		    <result name="websitemanageEnter">/page/background/websitemanage.jsp</result>
+		    <result name="clerkEnter">/page/background/clerkBackIndex.jsp</result>
+		     
+		    <result name="enterWebsiteManager">/page/background/Websitestaff.jsp</result>
+		    <result name="addWebSiteStaffsuccess">/showSuccess.jsp</result>
+            <result name="goToUpdateWebsitemanager">/page/background/upDateWebsiteManagerPage.jsp</result>
+			<result name="updateWebsitemanager">/showSuccess.jsp</result>
+			<result name="delectWebsitemanager">/showSuccess.jsp</result>  
+            <result name="failDelectWebsitemanager">/FailToDelectWebSiteManager.jsp</result>  
+            <result name="enterstaff">/page/background/staff.jsp</result> 
+            <result name="addBelongSuccess">/showSuccess.jsp</result>                
+            <result name="updatesuccess">/showSuccess.jsp</result> 
+            <result name="updateBelongStaff">/page/background/upDateStaffPage.jsp</result> 
+           
+            <result name="exit">/page/foreground/index.jsp</result> 
+            
+            <result name="upDateImformation">/page/background/upDateStaffInformation.jsp</result> 
+            <result name="upDateImformationSuccess">/showSuccess.jsp</result> 
+            <result name="goToUpDatePassword">/page/background/UpDatePassword.jsp</result> 
+            <result name="goToUpDatePasswordSuccess">/showSuccess.jsp</result> 
+            </action>
+            
+            <action name="showClerkIndex" class="staffAction" method="showClerkIndex">
+				<result>/page/background/clerkIndex.jsp</result>
+			</action>
+            
+            <action name="updateClerkPD" class="staffAction" method="updateClerkPD">
+				<result>/page/background/updateClerkPDSuccess.jsp</result>
+			</action>
+			
+			<action name="updateClerkData" class="staffAction" method="updateClerkData">
+				<result>/page/background/clerkData.jsp</result>
+			</action>
+            
+            <action name="showClerkNoOrders" class="staffAction" method="clerkShowOrders">
+				<result>/page/background/clerNoOrders.jsp</result>
+			</action>
+            
+            <action name="clerkSelectNoOrdres" class="staffAction" method="clerkSelectNoOrdres">
+				<result>/page/background/clerkSelectNoOrders.jsp</result>
+			</action>
+			
+			<action name="clerkSelectYesOrdres" class="staffAction" method="clerkSelectNoOrdres">
+				<result>/page/background/clerkSelectYesOrders.jsp</result>
+			</action>
+			
+			<action name="clerkShowSuccessOrders" class="staffAction" method="clerkShowSuccessOrders">
+				<result>/page/background/clerNoOrders.jsp</result>
+			</action>
+			
+			<action name="clerkShowFailOrders" class="staffAction" method="clerkShowFailOrders">
+				<result>/page/background/clerkShowFailOrders.jsp</result>
+			</action>
+			
+			<action name="selectOrdersLogisitcs" class="staffAction" method="selectOrdersLogisitcs">
+				<result>/page/background/logisitcsUpdate.jsp</result>
+			</action>
+			
+			<action name="logisitcsShowOrders" class="staffAction" method="clerkSelectNoOrdres">
+				<result>/page/background/logisitcsShowOrders.jsp</result>
+			</action>
+			
+			<action name="updateLogisitcs" class="staffAction" method="updateLogisitcs">
+				<result>/page/background/logisitcsUpdate.jsp</result>
+			</action>
+            
+            <action name="exitClerk" class="staffAction" method="exitClerk">
+				<result>/page/foreground/index.jsp</result>
+			</action>
+            
+	
+</package>
+	
+<package name="logisitcsmanage" extends="struts-default" namespace="/logisitcsmanage">
 		<action name="*Logisitcs" class="logisitcsAction" method="{1}">
 			<result name="success">/page/foreground/logisitcs.jsp</result>
-		</action>
+	
+	<result name="error">/page/foreground/error.jsp</result>	</action>
 	</package>
 	
 	
-	<package name="provincecitymanage" extends="struts-default" namespace="/provincecitymanage">
-		<action name="*ProvinceCity" class="provinceCityAction" method="{1}">
+	
+<package name="provincecitymanage" extends="struts-default" namespace="/provincecitymanage">
+		
+<action name="*ProvinceCity" class="provinceCityAction" method="{1}">
 			<result name="branch">/page/foreground/queryBranch.jsp</result>
-			<result name="phone">/page/foreground/queryBranchPhone.jsp</result>
+			
+<result name="phone">/page/foreground/queryBranchPhone.jsp</result>
 
 			<result name="freight">/page/foreground/queryFreight.jsp</result>
 
 		</action>
 	</package>
  
-	<package name="querybranchmanage" extends="struts-default" namespace="/querybranchmanage">
-		<action name="*QueryBranch" class="queryBranchAction" method="{1}">
+	
+<package name="querybranchmanage" extends="struts-default" namespace="/querybranchmanage">
+		
+<action name="*QueryBranch" class="queryBranchAction" method="{1}">
 			<result name="banches">/page/foreground/branch.jsp</result>
-			<result name="phones">/page/foreground/branchPhone.jsp</result>
-		</action>
+			
+<result name="phones">/page/foreground/branchPhone.jsp</result>
+		
+</action>
 	</package>
-	<package name="address" extends="struts-default" namespace="/address">
+	
+<package name="address" extends="struts-default" namespace="/address">
 
 		
 		<action name="getall" class="provinceAction" method="getAll">
 			<result>/page/foreground/sender.jsp</result>
-		</action>
-	</package>
-	
-	<package name="ordersmanage" extends="struts-default" namespace="/orders">
-		<action name="addorders" class="ordersAction" method="addOrders">
-			<result>/page/foreground/index.jsp</result>
-		</action>
 		
+</action>
+	
+</package>
+	
+	
+<package name="ordersmanage" extends="struts-default" namespace="/orders">
+		<action name="addorders" class="ordersAction" method="addOrders">
+			<result>/page/foreground/confirmSender.jsp</result>
+		</action>
+		<action name="ADDorders" class="ordersAction" method="ADDOrders">
+			<result>/page/foreground/senderSuccess.jsp</result>
+		</action>
+		<action name="GetALLorders" class="ordersAction" method="GetAllOrders">
+			<result>/page/background/AllOrders.jsp</result>
+		</action>
 	</package>
 	
 
 	
-	<package name="queryfreightmanage" extends="struts-default" namespace="/queryfreightmanage">
-		<action name="getFreight" class="queryFreightAction" method="getFreight">
+	
+<package name="queryfreightmanage" extends="struts-default" namespace="/queryfreightmanage">
+		
+<action name="getFreight" class="queryFreightAction" method="getFreight">
 			<result name="freight">/page/foreground/freight.jsp</result>
-		</action>
-	</package>
+		     <result name="nullWeight">/page/foreground/error.jsp</result>
+</action>
+	
+</package>
+
 
 
 </struts>

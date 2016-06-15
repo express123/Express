@@ -9,4 +9,5 @@ public interface CityDao {
 	List<City> query();
 	City getCityByCId(int cid);
 	City getCityByCid(int cid);
+	City getCityByname(String cname);
 }

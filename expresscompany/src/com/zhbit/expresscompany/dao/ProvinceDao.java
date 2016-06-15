@@ -8,4 +8,5 @@ public interface ProvinceDao {
 	 
 	List<Province> query();
 	Province getProvinceById(int pid);
+	Province getProvinceByname(String pname);
 }

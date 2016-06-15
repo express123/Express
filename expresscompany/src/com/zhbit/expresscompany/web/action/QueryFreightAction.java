@@ -27,20 +27,23 @@ public class QueryFreightAction extends ActionSupport {
 			rcname=cityserive.getCityByCid(rcid).getCname();
 			int w;
 			int freight = 0;
+			if(weight.equals("")){
+				return "nullWeight";
+			}
 			w=Integer.parseInt(weight);
-			if(w<10){
+			if(w<=10){
 				if(spid==rpid){freight=moneysSerive.getMoneyByMid(1).getMmoney();}
 			    else{freight=moneysSerive.getMoneyByMid(1).getMmoney()+10;}
-			}else if(w<20){
+			}else if(w<=20){
 				if(spid==rpid){freight=moneysSerive.getMoneyByMid(2).getMmoney();}
 			    else{freight=moneysSerive.getMoneyByMid(2).getMmoney()+10;}				
-			}else if(w<30){
+			}else if(w<=30){
 				if(spid==rpid){freight=moneysSerive.getMoneyByMid(3).getMmoney();}
 			    else{freight=moneysSerive.getMoneyByMid(3).getMmoney()+10;}	
-			}else if(w<40){
+			}else if(w<=40){
 				if(spid==rpid){freight=moneysSerive.getMoneyByMid(4).getMmoney();}
 			    else{freight=moneysSerive.getMoneyByMid(4).getMmoney()+10;}	
-			}else if(w<50){
+			}else if(w<=50){
 				if(spid==rpid){freight=moneysSerive.getMoneyByMid(5).getMmoney();}
 			    else{freight=moneysSerive.getMoneyByMid(5).getMmoney()+10;}	
 			}

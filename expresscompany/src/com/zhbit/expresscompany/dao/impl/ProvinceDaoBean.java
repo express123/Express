@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.zhbit.expresscompany.dao.ProvinceDao;
+import com.zhbit.expresscompany.domain.Orders;
 import com.zhbit.expresscompany.domain.Province;
 public class ProvinceDaoBean implements ProvinceDao{
 	
@@ -19,6 +21,14 @@ public class ProvinceDaoBean implements ProvinceDao{
 	
 	public Province getProvinceById(int pid){
 		return (Province)sessionFactory.getCurrentSession().load(Province.class,pid);
+	}
+	
+	public Province getProvinceByname(String pname){//找出该名字下的省份详情
+		String hql="from Province where pname = ? ";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, pname);
+		Province province=(Province)query.list().get(0);
+		return province;
 	}
 	
 	

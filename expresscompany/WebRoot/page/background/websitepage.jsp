@@ -5,9 +5,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="/expresscompany/js/identity.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>新增网点</title>
- <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<title>网点管理</title>
+ <link href="/expresscompany/css/style.css" rel="stylesheet" type="text/css" />
+ <style type="text/css"> 
+ .doubles br{
+			display: none;
+			}
+  .ta td{
+  word-break: keep-all;
+  white-space:nowrap;
+  text-align:center;
+  padding:10px;
+  }
+ </style>
 </head>
 <body>
 <br>
@@ -16,8 +28,12 @@
 	  <center><font size="6">添加网点</font></center> <br>
 	<s:form action="addBanches" namespace="/banchesmanage" method="post">
 		 <center> 网点名称：<s:textfield name="banches.bname" size="35"/><br/><br/>
-		 <center> 网点省份：<s:select  name = "banches.pid" list="allprovince"  listKey="pid" listValue="pname" /><br/><br/>          
-		<center> 网店城市：<s:select  name = "banches.cid" list="allcity"  listKey="cid" listValue="cname" /><br/><br/>
+		<div class="doubles">
+		省        市：<s:doubleselect name="banches.pid" list="allprovince" listKey="pid" listValue="pname" labelposition="left"
+			       doubleName="banches.cid" doubleList="cityMap.get(top.pid)"
+			       doubleListKey="cid" doubleListValue="cname" >
+ 	  			</s:doubleselect>
+ 	  			</div><br/>
 		 <center> 详细地址：<s:textfield  name="banches.baddress" size="35"/><br/><br/>
 		 <center> 网点电话：<s:textfield name="banches.bphone" size="35"/><br/><br/>
 		 <center> <s:submit value="保存"/>&nbsp;&nbsp;<s:reset value="重置" />
@@ -27,7 +43,7 @@
      <hr size="3"  color="#ff0000"><br><br>
       <center><font size="7">全部网点信息</font></center> <br><br>
      <table width="600" border="3">
-     <tr>
+     <tr class="ta">
      <td>网点名称</td>
      <td>网点省份</td>
      <td>网店城市</td>
@@ -37,7 +53,7 @@
      <td>删      除 </td>
      </tr>
      <s:iterator value="allwebsite">
-  <tr>
+  <tr class="ta">
     <td>
 	<s:property value="bname" />
     </td>
@@ -71,53 +87,29 @@
   </tr>
   </s:iterator>
   </table>   
-     <br><br><br>
+     <br/><br/><br/>
 </body>
 <script>
-function bname(name){
-		if(name==""){
-			$("#addBanches_banches_bname").next("span").remove();
-			$("#addBanches_banches_bname").after("<span style='color:red;'>网点名称不能为空</span>")
-		}
-		else{
-			$("#addBanches_banches_bname").next("span").remove();
-		}
-}
-function baddress(name){
-		if(name==""){
-			$("#addBanches_banches_baddress").next("span").remove();
-			$("#addBanches_banches_baddress").after("<span style='color:red;'>详细地址不能为空</span>")
-		}
-		else{
-			$("#addBanches_banches_baddress").next("span").remove();
-		}
-}
-function bphone(mobile){
-		if(!/^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/i.test(mobile)){
-			$("#addBanches_banches_bphone").next("span").remove();
-			$("#addBanches_banches_bphone").after("<span style='color:red;'>手机号无效</span>")
-		}
-		else{
-			$("#addBanches_banches_bphone").next("span").remove();
-		}}
 $(function(){
-	$("#addBanches_banches_bname").blur(function(){
-		var name1=$("#addBanches_banches_bname").val().trim();
-		bname(name1);
+	var id1="#addBanches_banches_bname";
+	var id2="#addBanches_banches_baddress";
+	var id3="#addBanches_banches_bphone";
+	$(id1).blur(function(){
+		var name1=$(id1).val().trim();
+		bname(name1,id1,"姓名不能为空");
 	});
-	$("#addBanches_banches_baddress").blur(function(){
-		var name2=$("#addBanches_banches_baddress").val().trim();
-		baddress(name2);
+	$(id2).blur(function(){
+		var name2=$(id2).val().trim();
+		bname(name2,id2,"地址不能为空");
 	});
-
-	$("#addBanches_banches_bphone").blur(function(){
-		var mobile=$("#addBanches_banches_bphone").val().trim();
-		bphone(mobile);
+	$(id3).blur(function(){
+		var mobile=$(id3).val().trim();
+		bphone(mobile,id3);
 	});
 	$("input:reset").bind("click",function(){
-		$("#addBanches_banches_bname").next("span").remove();
-		$("#addBanches_banches_baddress").next("span").remove();
-		$("#addBanches_banches_bphone").next("span").remove();
+		$(id1).next("span").remove();
+		$(id2).next("span").remove();
+		$(id3).next("span").remove();
 	});
 });
 </script>

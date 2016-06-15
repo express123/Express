@@ -34,24 +34,43 @@ public class BanchesDaoBean implements BanchesDao{
 		return sessionFactory.getCurrentSession().createQuery("from Banches").list();
 	}
         
-        public List<Banches> notUseBanches(List list){
-		//String hq1="from Bahches where bid not in(";
-		//String hq2=",";
-		//String hq3=")";
-		//(int ii=0;ii<list.size();ii++){
-			//String b=list.get(ii).toString();
-			//hq1=hq1+b;
-			//if(ii<list.size()-1)
-			//hq1=hq1+hq2;
-		//}
-		//hq1=hq1+hq3;
-		String hq1="from Bahches where bid not in(:ids)";
-		Query query=sessionFactory.getCurrentSession().createQuery(hq1);
-		query.setParameter("ids", 3);
-		for(int ii=0;ii<list.size();ii++){
-			query.setInteger(ii, Integer.parseInt(list.get(ii).toString())); 
-		}
-		return  query.list();
+    public List<Banches> notUseBanches(List list){
+        	
+            	String hql="from Banches";
+        		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        		List<Banches> list1=query.list();
+//        		for(int i=0;i<list1.size();i++){
+//        			System.out.println("所有网点"+list1.get(i).getBid());
+//        		}
+//        		for(int i=0;i<list1.size();i++){
+//        		for(int j=0;j<list.size();j++){
+//        			int a=Integer.parseInt(list.get(j).toString()); 
+//        			if(list1.get(i).getBid()==a){
+//        				System.out.println("删除的网点ID："+list1.get(i).getBid());
+//        				list1.remove(i);  
+//        			  
+//        				if(i>0) i--; 
+//        				
+//        			}
+//        			}
+//        		}
+        		
+        		for(int i=0;i<list.size();i++){	
+        		int a=Integer.parseInt(list.get(i).toString()); 	
+        		for(int j=0;j<list1.size();j++){	
+        			if(list1.get(j).getBid()==a){
+        				System.out.println("删除的网点ID："+list1.get(j).getBid());
+        				list1.remove(j);  
+        				if(j>0) j--; 
+        			}
+        			}
+        		}
+        		
+        		for(int i=0;i<list1.size();i++){
+        			System.out.println("输出未用网点："+list1.get(i).getBid());
+        		}
+        		return  list1;   	
+
 	}
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

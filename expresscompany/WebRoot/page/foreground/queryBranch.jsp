@@ -59,23 +59,23 @@
     </head>
     <body>
 	<br><br>
-	
-	<!-- 查询快件页面 -->
-	
-<div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-2">
 				<ul>
-				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp">查询快件</a></li>
-				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" >查询运费</s:a></li>
-				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" >查询网点</s:a></li>
-				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" >查询客服电话</s:a></li>
+				<li id="p3"><a href="/expresscompany/page/foreground/queryExpress.jsp" target="showiframe">查询快件</a></li>
+				<li id="p3"><s:a action="tofreightProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询运费</s:a></li>
+				<li id="p3"><s:a action="tobranchProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询网点</s:a></li>
+				<li id="p3"><s:a action="tophoneProvinceCity"  namespace="/provincecitymanage" target="showiframe">查询客服电话</s:a></li>
 				</ul>
 			</div>
 			
 			<div class="col-sm-10">
 				<div class="col-sm-4">
-<s:form action="getbanchesQueryBranch" namespace="/querybranchmanage" method="post" target="showBranch">
+					
+					
+
+		<s:form action="getbanchesQueryBranch" namespace="/querybranchmanage" method="post" target="showBranch">
 			<ul>
 			请选择省和市
 			<div class="doubles">
@@ -86,16 +86,18 @@
 
 			<br>
 			<s:submit value="查询"/>
-		</s:form>							
-						</div>
-						<div class="col-sm-8">
-						<center>
-						<iframe name="showBranch" frameborder=0 width=500 height=250 marginheight=0 marginwidth=0 scrolling=no  src="<s:url value='/page/foreground/branch.jsp'/>"  ></iframe>		
-						</center>
+		</s:form>
+
+											
+				</div>
+				<div class="col-sm-8">
+					<center>
+<iframe name="showBranch" frameborder=0 width=700 height=1000 marginheight=0 marginwidth=0  src="<s:url value='/page/foreground/branch.jsp'/>"  ></iframe>					</center>
 				</div>
 			</div>
 		</div>
 	</div>
+	
 
 
 

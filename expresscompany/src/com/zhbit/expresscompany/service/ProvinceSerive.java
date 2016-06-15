@@ -9,4 +9,5 @@ import com.zhbit.expresscompany.domain.Province;
 public interface ProvinceSerive {
 	List<Province> getAllProvince();
 	Province getProvinceById(int pid);
+	Province getProvinceByname(String pname);
 }
